@@ -1,0 +1,169 @@
+COMANDOS USADOS NO TERMINAL
+
+Se eu usar o clear no linux ele vai limpar o terminal.
+Se eu usar o Ctrl + L, ele vai criar a barra de rolagem, limpando a tela, mas jogando o conteúdo para cima. Eu tenho como acessar novamente.
+
+No terminal:
+sudo = executa os comandos como administrador
+apt = gerenciador de pacotes / programas do ubuntu
+
+Para baixar e instalar um programa no pc pelo terminal:
+sudo apt install nomeDoPrograma
+
+cd = muda de diretório
+Para entrar no diretório: cd nomeDoDiretorio
+Para voltar para o diretório anterior (diretório pai): cd ..
+Para referenciar a própria pasta que eu estou: cd .
+Para voltar para o diretório inicial: cd ~
+
+ls = lista arquivos e pastas no diretório atual
+ls -a = lista diretórios e arquivos, incluindo os ocultos
+ls -l = lista doretórios, arquivos e suas permissões
+ls * = lista tudo que tem dentro do meu diretório atual, incluíndo outros diretórios
+sem precisar entrar neles
+
+mkdir = cria um novo diretório
+mkdir nomeDaPastaQueEuQueroCriar
+
+pwd = mostra caminho completo para o diretório atual
+
+rm = apaga um arquivo ou pasta
+rm nomeDoArquivo = apaga o arquivo
+rmdir nomeDaPasta = apaga diretorios que estejam vazios
+rm -rf nomeDaPasta = apaga uma pasta que tenha arquivos ou outras pastas dentro
+
+touch = cria um arquivo vazio
+touch nomeDoArquivo
+
+echo = escreve uma mensagem no terminal
+echo "Hello World"
+Pode ser usado para colocar textos dentro de arquivos:
+echo "Hello World" > teste.txt
+
+cat = exibe o conteúdo de um arquivo no terminal
+cat nomeDoArquivo
+Se eu quiser adicionar algo a um arquivo vazio:
+cat > nomeDoArquivo = aperto enter e é só digitar o que eu quero, para finalizar
+é só eu apertar ctrl D
+Se eu quiser adicionar algo a um arquivo que já tem coisa escrita:
+cat >> nomeDoArquivo = aperto enter e digito o que eu quero, para finalizar ctrl D
+Se eu quiser juntar 2 arquivos em um terceiro arquivo:
+cat nomeDoArquivoQueEuQueroPrimeiro nomeDoArquivoQueEuQueroDepois > nomeDoArquivoFinal
+
+cp = copia um arquivo
+cp nomeDoArquivo nomeDoNovoArquivo (faz uma copia do arquivo no mesmo local)
+cp nomeDoArquivo caminhoParaOndeQuerCopiar
+
+mv = move ou renomeia um arquivo
+mv nomeDoArquivo caminhoParaOndeQuerMover
+mv nomeDoArquivo nomeDoNovoArquivo
+
+chmod = altera as permissões de um arquivo
+- = remove permissões
++ = adiciona permissões
+u = permissões do usuário
+g = permissões de um grupo de usuários
+o = permissões de outros usuários
+a = permissão de todos (u g o)
+r = permissão de leitura de arquivo ou diretório
+w = permissão de edição de arquivo ou diretório
+x = permissão de execução (acessar um arquivo ou diretório pelo comando cd)
+- = começar com hífen significa que é um arquivo comum
+d = começar com D significa que é um diretório
+chmod u+rwx nomeDoArquivo = adiciona todas as permissões para o usuário de um determinado 
+arquivo
+chmod u-rw nomeDoArquivo = remove a permissão de leitura e escrita para o usuário
+
+jobs = mostra os processos em execução ou suspensos no pc
+
+ps = mostra os processos em execução no pc
+
+kill = mata um processo que está em background
+kill PID (pid é o número de identificação do processo)
+kill %numeroEntre[]QueOProcessoEstá
+kill -9 PID (força um processo a morrer)
+
+ctrl+c para eliminar um processo que está em execução
+ctrl+z para suspender um processo que está em execução
+
+Se eu quiser criar um processo e deixar ele em background para poder continuar usando
+o terminal é só depois do comando eu colocar a letra &
+
+Se eu suspender um processo que está em execução eu aperto ctrl+Z, depois disso, se 
+eu quiser que ele volte a executar só que em background, basta eu digitar o comando
+bg e apertar enter.
+
+wget = baixa arquivos da internet
+wget linkParaUmArquivo.comandos
+
+history = mostra o histório de comandos utilizados no terminal
+Mostra o histórico de comandos: history
+Pegar os últimos 10 comandos: history | tail
+
+man = mostra o manual de comandos do sistema
+man ls = mostra a seção do manual que contêm as informações sobre o comando ls
+
+se eu não me lembrar da função do comando:
+whatis comandoQueEuNãoSeiOQueÉ
+
+Quero fazer uma cópia e não me lembro o comando:
+apropos copy = ele vai me listar todos os comandos que tem relação com cópias
+
+less nomeDoArquivoQueEuQueroAbrir = mostra partes do conteúdo por página 
+(para mudar de página eu aperto na barra de espaço e, para finalizar a 
+visualização eu aperto a letra q)
+
+Se eu quiser pesquisar um nome dentro de um arquivo:
+less nomeDoArquivoQueEuQueroAbrir aí quando abrir eu digito /nomeQueEuQuero
+para navegar entre esses nomes eu digito a letra n
+para finalizar digito a letra q
+
+Outra forma de pesquisar um nome dentro de um arquivo:
+grep nomeQueEuQuero nomeDoArquivo (lembrando que ele leva em 
+consideração a letra maiúscula ou minúscula)
+Para ele não levar em consideração a letra maiúscula ou minúscula:
+grep -i nomeQueEuQuero nomeDoArquivo
+Esse comando também me permite procurar por frases, tenho que colocar em aspas:
+grep -i 'frase que eu quero' nomeDoArquivo
+Se eu quiser procurar tudo que não tem relação com a minha busca:
+grep -iv 'frase que eu não quero que apareça' nomeDoArquivo
+Se eu quiser saber em qual linha o que eu procuro se encontra:
+grep -in 'frase que eu quero' nomeDoArquivo
+Se eu quiser saber a quantidade de vezes que aquele nome aparece no arquivo:
+grep -ic 'nome que eu quero' nomeDoArquivo
+
+head nomeDoArquivoQueEuQuero = por padrão, mostra as 10 primeiras linhas do arquivo
+head -5 nomeDoArquivoQueEuQuero = vai mostrar só as 5 primeiras linhas do arquivo
+
+tail nomeDoArquivoQueEuQuero = por padrão, mostra as 10 últimas linhas do arquivo
+tail -5 nomeDoArquivoQueEuQuero = vai mostrar só as 5 últimas linhas do arquivo
+
+Se eu quiser saber a quantidade de linhas, palavras e caracteres que tem em um arquivo:
+wc nomeDoArquivo
+Se eu quiser só a quantidade de palavras:
+wc -w nomeDoArquivo
+Se eu quiser só a quantidade de linhas:
+wc -l nomeDoArquivo
+Se eu quiser só a quantidade de caracteres:
+wc -c nomeDoArquivo
+
+curl = comando utilizado para transferir dados de ou para um servidor, usando um dos 
+protocolos suportados. Foi projetado para funcionar sem a interação do usuário.
+Ex.: curl -o nomeDoArquivo "site"
+
+visualizar no terminal as informações do meu arquivo em ordem alfabética:
+sort < nomeDoArquivo
+Salvar o meu arquivo em um novo arquivo em ordem alfabética:
+sort < nomeDoArquivo > nomeDoNovoArquivo
+
+who = serve para saber quais usuários estão utilizando aquele sistema ou quais tem 
+permissão para aquele tipo de arquivo.
+
+Pipe: | : serve para ligar 2 comandos, executando eles de forma sucessiva
+Ex.: grep F nomes.txt | sort (vai listar todos os nomes com a letra F em
+ordem alfabética que existem no arquivo informado)
+
+find = comando para pesquisar em diretórios por arquivos ou outras pastas
+Para listar todos os arquivos que terminam em .txt: find . -name "*.txt"
+Para localizar todos os diretórios: find . -type d
+Para localizar todos os arquivos: find . -type f
